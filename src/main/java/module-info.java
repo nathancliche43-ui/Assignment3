@@ -5,4 +5,6 @@ module com.example.zoomanagementapplication {
 
     opens com.example.zoomanagementapplication to javafx.fxml;
     exports com.example.zoomanagementapplication;
+    exports com.example.zoomanagementapplication.Model;
+    opens com.example.zoomanagementapplication.Model to javafx.fxml;
 }
