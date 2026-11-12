@@ -9,12 +9,12 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="342.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ListView fx:id="zooListView" layoutX="93.0" layoutY="54.0" prefHeight="200.0" prefWidth="275.0" />
-      <Button layoutX="132.0" layoutY="276.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="63.0" text="View" />
+      <Button layoutX="132.0" layoutY="276.0" mnemonicParsing="false" onAction="#onViewButtonClick" prefHeight="26.0" prefWidth="63.0" text="View" />
       <Text fx:id="titleText" layoutX="174.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zoo Sections">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Button layoutX="256.0" layoutY="276.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="63.0" text="Back" />
+      <Button layoutX="256.0" layoutY="276.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="63.0" text="Back" />
    </children>
 </AnchorPane>
