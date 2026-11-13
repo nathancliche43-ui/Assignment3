@@ -1,4 +1,4 @@
-package com.example.zoomanagementapplication;
+package com.example.zoomanagementapplication.Model;
 
 import java.util.List;
 

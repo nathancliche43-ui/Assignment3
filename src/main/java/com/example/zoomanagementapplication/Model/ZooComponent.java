@@ -1,4 +1,4 @@
-package com.example.zoomanagementapplication;
+package com.example.zoomanagementapplication.Model;
 /**
  * Represents a generic component within a zoo management hierarchy,
  * such as a zoo section, habitat, or individual enclosure.
