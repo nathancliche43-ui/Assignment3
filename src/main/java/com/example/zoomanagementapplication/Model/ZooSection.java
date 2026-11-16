@@ -17,6 +17,7 @@ public class ZooSection implements ZooComponent{
      */
     public ZooSection(String pName){
         setName(pName);
+        this.aComponents = new java.util.ArrayList<>();
     }
 
     /**
@@ -37,6 +38,14 @@ public class ZooSection implements ZooComponent{
      */
     public String getName() {
         return this.aName;
+    }
+
+    /**
+     * Adds a component to the zoo section
+     * @param pComponent enclosure
+     */
+    public void addComponent(ZooComponent pComponent) {
+        this.aComponents.add(pComponent);
     }
 
     /**
