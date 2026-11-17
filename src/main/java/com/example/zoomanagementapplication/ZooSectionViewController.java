@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -35,6 +36,19 @@ public class ZooSectionViewController {
         ZooSection root = aService.getRootSection();
         List<ZooComponent> ComponentList = root.ZooComponentList();
         zooListView.getItems().setAll(ComponentList);
+        zooListView.setCellFactory(listView -> new ListCell<>() {
+            @Override
+            protected void updateItem(ZooComponent item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    int count = item.countAnimals();
+                    String label = (count == 1) ? "1 animal" : count + " animals";
+                    setText(item.getName() + " (" + label + ")");
+                }
+            }
+        });
     }
 
     @FXML
@@ -78,7 +92,28 @@ public class ZooSectionViewController {
 
     @FXML
     private void onBackButtonClick(ActionEvent pEvent) {
-        Platform.exit();
+        if (navigationHistory.isEmpty()) {
+            Platform.exit();
+            return;
+        }
+
+        navigationHistory.remove(navigationHistory.size() - 1);
+
+        ZooSection targetSection;
+        if (navigationHistory.isEmpty()) {
+            targetSection = aService.getRootSection();
+            if (titleText != null) {
+                titleText.setText("Zoo Sections");
+            }
+        } else {
+            targetSection = navigationHistory.get(navigationHistory.size() - 1);
+            if (titleText != null) {
+                titleText.setText(targetSection.getName());
+            }
+        }
+
+        zooListView.getItems().setAll(targetSection.ZooComponentList());
     }
+
 }
 
