@@ -1,5 +1,6 @@
 package com.example.zoomanagementapplication.Model;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -17,6 +18,7 @@ public class ZooSection implements ZooComponent{
      */
     public ZooSection(String pName){
         setName(pName);
+        this.aComponents = new java.util.ArrayList<>();
     }
 
     /**
@@ -40,6 +42,14 @@ public class ZooSection implements ZooComponent{
     }
 
     /**
+     * Adds a component to the zoo section
+     * @param pComponent enclosure
+     */
+    public void addComponent(ZooComponent pComponent) {
+        this.aComponents.add(pComponent);
+    }
+
+    /**
      * Returns the total amount of animals in a zoo section.
      * @return the total amount of animals
      */
@@ -60,4 +70,10 @@ public class ZooSection implements ZooComponent{
     public String toString() {
         return this.getName();
     }
+
+    /**
+     * Returns a copy of the zoo components.
+     * @return unmodifiable copy of zoo components list
+     */
+    public List<ZooComponent> ZooComponentList() { return Collections.unmodifiableList(aComponents); }
 }
