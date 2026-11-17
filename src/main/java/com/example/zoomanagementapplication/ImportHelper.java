@@ -1,4 +1,5 @@
 package com.example.zoomanagementapplication;
+import com.example.zoomanagementapplication.Model.Enclosure;
 import com.example.zoomanagementapplication.Model.ZooSection;
 
 /**
@@ -95,24 +96,24 @@ public final class ImportHelper {
         // BIG CATS
         // ==========================================================
 
-//        Enclosure lions = new Enclosure("Lions");
-//        lions.addAnimal(new Lion("Simba", 3));
-//        lions.addAnimal(new Lion("Mufasa", 8));
-//        lions.addAnimal(new Lion("Nala", 3));
-//
-//        Enclosure tigerHabitat = new Enclosure("Tiger Habitat");
-//        tigerHabitat.addAnimal(new Tiger("Rajah", 3));
-//        tigerHabitat.addAnimal(new Tiger("Shere Khan", 3));
-//
-//        Enclosure tigerCubs = new Enclosure("Tiger Cubs");
-//        tigerCubs.addAnimal(new Tiger("Tala", 5));
-//        tigerCubs.addAnimal(new Tiger("Ravi", 0));
-//        tigerCubs.addAnimal(new Tiger("Kali", 0));
-//        tigerCubs.addAnimal(new Tiger("Indra", 0));
+        Enclosure lions = new Enclosure("Lions");
+        lions.addAnimal(new Lion("Simba", 3));
+        lions.addAnimal(new Lion("Mufasa", 8));
+        lions.addAnimal(new Lion("Nala", 3));
+
+        Enclosure tigerHabitat = new Enclosure("Tiger Habitat");
+        tigerHabitat.addAnimal(new Tiger("Rajah", 3));
+        tigerHabitat.addAnimal(new Tiger("Shere Khan", 3));
+
+        Enclosure tigerCubs = new Enclosure("Tiger Cubs");
+        tigerCubs.addAnimal(new Tiger("Tala", 5));
+        tigerCubs.addAnimal(new Tiger("Ravi", 0));
+        tigerCubs.addAnimal(new Tiger("Kali", 0));
+        tigerCubs.addAnimal(new Tiger("Indra", 0));
 
         ZooSection tigers = new ZooSection("Tigers");
-//        tigers.addComponent(tigerHabitat);
-//        tigers.addComponent(tigerCubs);
+        tigers.addComponent(tigerHabitat);
+        tigers.addComponent(tigerCubs);
 
 //        Enclosure cougars = new Enclosure("Cougars");
 //        cougars.addAnimal(new Cougar("Sierra", 3));
@@ -121,9 +122,9 @@ public final class ImportHelper {
 //        cougars.addAnimal(new Cougar("Lenny", 1));
 
         ZooSection bigCats = new ZooSection("Big Cats");
-//        bigCats.addComponent(lions);
+        bigCats.addComponent(lions);
         bigCats.addComponent(tigers);
-//        bigCats.addComponent(cougars);
+        bigCats.addComponent(cougars);
 
         // ==========================================================
         // BIRDS
@@ -146,9 +147,9 @@ public final class ImportHelper {
 //        penguins.addAnimal(new Penguin("Kowalski", 8));
 
         ZooSection birds = new ZooSection("Birds");
-//        birds.addComponent(eagles);
-//        birds.addComponent(parrots);
-//        birds.addComponent(penguins);
+        birds.addComponent(eagles);
+        birds.addComponent(parrots);
+        birds.addComponent(penguins);
 
         // ==========================================================
         // ROOT ZOO SECTION

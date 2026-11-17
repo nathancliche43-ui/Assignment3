@@ -1,5 +1,6 @@
 package com.example.zoomanagementapplication;
 
+import com.example.zoomanagementapplication.Model.Enclosure;
 import com.example.zoomanagementapplication.Model.ZooComponent;
 import com.example.zoomanagementapplication.Model.ZooSection;
 import javafx.application.Platform;
@@ -57,25 +58,25 @@ public class ZooSectionViewController {
 
         }
         // If the user selected an Enclosure, open the enclosure modal window
-//        else if (selectedItem instanceof Enclosure selectedEnclosure) {
-//            openEnclosureWindow(selectedEnclosure, pEvent);
-//        }
+        else if (selectedItem instanceof Enclosure selectedEnclosure) {
+            openEnclosureWindow(selectedEnclosure, pEvent);
+        }
     }
-//
-//    @FXML
-//    private void openEnclosureWindow(Enclosure selectedEnclosure, ActionEvent pEvent) throws IOException {
-//            FXMLLoader = new FXMLLoader(ZooApplication.class.getResource("enclosure-view.fxml"));
-//            Parent view = fxmlLoader.load();
-//            EnclosureViewController newEnclosureViewController = fxmlLoader.getController();
-//            newEnclosureViewController.setEnclosure(getSelectedEnclosure());
-//            Scene nextScene = new Scene(view, 500, 500);
-//            Stage nextStage = new Stage();
-//            nextStage.setScene(nextScene);
-//            nextStage.setTitle(pEnclosure.getName());
-//            nextStage.initModality(Modality.WINDOW_MODAL);
-//            nextStage.initOwner(((Node) pEvent.getSource()).getScene().getWindow());
-//            nextStage.showAndWait();
-//    }
+
+    @FXML
+    private void openEnclosureWindow(Enclosure selectedEnclosure, ActionEvent pEvent) throws IOException {
+            FXMLLoader = new FXMLLoader(ZooApplication.class.getResource("enclosure-view.fxml"));
+            Parent view = fxmlLoader.load();
+            EnclosureViewController newEnclosureViewController = fxmlLoader.getController();
+            newEnclosureViewController.setEnclosure(getSelectedEnclosure());
+            Scene nextScene = new Scene(view, 500, 500);
+            Stage nextStage = new Stage();
+            nextStage.setScene(nextScene);
+            nextStage.setTitle(pEnclosure.getName());
+            nextStage.initModality(Modality.WINDOW_MODAL);
+            nextStage.initOwner(((Node) pEvent.getSource()).getScene().getWindow());
+            nextStage.showAndWait();
+    }
 
     @FXML
     private void onBackButtonClick(ActionEvent pEvent) {

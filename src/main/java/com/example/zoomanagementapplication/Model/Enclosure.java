@@ -1,6 +1,6 @@
 package com.example.zoomanagementapplication.Model;
 
-import com.example.zoomanagementapplication.ZooComponent;
+import com.example.zoomanagementapplication.Model.ZooComponent;
 
 import java.util.ArrayList;
 import java.util.Collections;
