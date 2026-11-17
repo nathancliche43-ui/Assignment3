@@ -28,24 +28,14 @@ public class ZooSectionViewController {
     @FXML
     private final List<ZooSection> navigationHistory = new ArrayList<>();
 
-    @FXML
-    private List<ZooSection> topLevelSections = new ArrayList<>();
-
     private ZooService aService;
 
     @FXML
-    public void setZooSections(List<ZooSection> pSections) {
-        this.topLevelSections = pSections;
-        showTopLevelSections();
-    }
-
-    @FXML
-    private void showTopLevelSections() {
-        navigationHistory.clear();
-        if (titleText != null) {
-            titleText.setText("Zoo Sections");
-        }
-        zooListView.getItems().setAll(topLevelSections);
+    public void initialize() {
+        aService = ImportHelper.createZooService();
+        ZooSection root = aService.getRootSection();
+        List<ZooComponent> ComponentList = root.ZooComponentList();
+        zooListView.getItems().setAll(ComponentList);
     }
 
     @FXML
@@ -63,7 +53,8 @@ public class ZooSectionViewController {
                 titleText.setText(selectedSection.getName());
             }
 
-            zooListView.getItems().setAll(selectedSection);
+            zooListView.getItems().setAll(selectedSection.ZooComponentList());
+
         }
         // If the user selected an Enclosure, open the enclosure modal window
 //        else if (selectedItem instanceof Enclosure selectedEnclosure) {
@@ -73,7 +64,7 @@ public class ZooSectionViewController {
 //
 //    @FXML
 //    private void openEnclosureWindow(Enclosure selectedEnclosure, ActionEvent pEvent) throws IOException {
-//            FXMLLoader fxmlLoader = new FXMLLoader(ZooApplication.class.getResource("enclosure-view.fxml"));
+//            FXMLLoader = new FXMLLoader(ZooApplication.class.getResource("enclosure-view.fxml"));
 //            Parent view = fxmlLoader.load();
 //            EnclosureViewController newEnclosureViewController = fxmlLoader.getController();
 //            newEnclosureViewController.setEnclosure(getSelectedEnclosure());

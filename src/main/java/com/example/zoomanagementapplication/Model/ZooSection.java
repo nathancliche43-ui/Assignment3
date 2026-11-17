@@ -1,5 +1,6 @@
 package com.example.zoomanagementapplication.Model;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -69,4 +70,10 @@ public class ZooSection implements ZooComponent{
     public String toString() {
         return this.getName();
     }
+
+    /**
+     * Returns a copy of the zoo components.
+     * @return unmodifiable copy of zoo components list
+     */
+    public List<ZooComponent> ZooComponentList() { return Collections.unmodifiableList(aComponents); }
 }
