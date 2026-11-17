@@ -36,7 +36,7 @@ public class ZooSectionViewController {
         ZooSection root = aService.getRootSection();
         List<ZooComponent> ComponentList = root.ZooComponentList();
         zooListView.getItems().setAll(ComponentList);
-        zooListView.setCellFactory(listView -> new ListCell<>() {
+        zooListView.setCellFactory(_ -> new ListCell<>() {
             @Override
             protected void updateItem(ZooComponent item, boolean empty) {
                 super.updateItem(item, empty);
@@ -55,24 +55,22 @@ public class ZooSectionViewController {
     protected void onViewButtonClick(ActionEvent pEvent) throws IOException {
         ZooComponent selectedItem = zooListView.getSelectionModel().getSelectedItem();
 
-        if (selectedItem == null) {
-            return;
-        }
+        switch (selectedItem) {
+            case ZooSection selectedSection -> {
+                navigationHistory.add(selectedSection);
 
-        if (selectedItem instanceof ZooSection selectedSection) {
-            navigationHistory.add(selectedSection);
+                if (titleText != null) {
+                    titleText.setText(selectedSection.getName());
+                }
 
-            if (titleText != null) {
-                titleText.setText(selectedSection.getName());
+                zooListView.getItems().setAll(selectedSection.ZooComponentList());
             }
-
-            zooListView.getItems().setAll(selectedSection.ZooComponentList());
-
+            // If the user selected an Enclosure, open the enclosure modal window
+            case Enclosure selectedEnclosure -> openEnclosureWindow(selectedEnclosure, pEvent);
+            case null, default -> {
+            }
         }
-        // If the user selected an Enclosure, open the enclosure modal window
-        else if (selectedItem instanceof Enclosure selectedEnclosure) {
-            openEnclosureWindow(selectedEnclosure, pEvent);
-        }
+
     }
 
     @FXML
@@ -95,13 +93,13 @@ public class ZooSectionViewController {
     }
 
     @FXML
-    private void onBackButtonClick(ActionEvent pEvent) {
+    private void onBackButtonClick() {
         if (navigationHistory.isEmpty()) {
             Platform.exit();
             return;
         }
 
-        navigationHistory.remove(navigationHistory.size() - 1);
+        navigationHistory.removeLast();
 
         ZooSection targetSection;
         if (navigationHistory.isEmpty()) {
@@ -110,7 +108,7 @@ public class ZooSectionViewController {
                 titleText.setText("Zoo Sections");
             }
         } else {
-            targetSection = navigationHistory.get(navigationHistory.size() - 1);
+            targetSection = navigationHistory.getLast();
             if (titleText != null) {
                 titleText.setText(targetSection.getName());
             }
