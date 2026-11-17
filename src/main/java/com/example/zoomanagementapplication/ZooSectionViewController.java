@@ -1,8 +1,6 @@
 package com.example.zoomanagementapplication;
 
-import com.example.zoomanagementapplication.Model.Enclosure;
-import com.example.zoomanagementapplication.Model.ZooComponent;
-import com.example.zoomanagementapplication.Model.ZooSection;
+import com.example.zoomanagementapplication.Model.*;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -65,17 +63,17 @@ public class ZooSectionViewController {
 
     @FXML
     private void openEnclosureWindow(Enclosure selectedEnclosure, ActionEvent pEvent) throws IOException {
-            FXMLLoader = new FXMLLoader(ZooApplication.class.getResource("enclosure-view.fxml"));
-            Parent view = fxmlLoader.load();
-            EnclosureViewController newEnclosureViewController = fxmlLoader.getController();
-            newEnclosureViewController.setEnclosure(getSelectedEnclosure());
-            Scene nextScene = new Scene(view, 500, 500);
-            Stage nextStage = new Stage();
-            nextStage.setScene(nextScene);
-            nextStage.setTitle(pEnclosure.getName());
-            nextStage.initModality(Modality.WINDOW_MODAL);
-            nextStage.initOwner(((Node) pEvent.getSource()).getScene().getWindow());
-            nextStage.showAndWait();
+//            FXMLLoader = new FXMLLoader(ZooApplication.class.getResource("enclosure-view.fxml"));
+//            Parent view = fxmlLoader.load();
+//            EnclosureViewController newEnclosureViewController = fxmlLoader.getController();
+//            newEnclosureViewController.setEnclosure(getSelectedEnclosure());
+//            Scene nextScene = new Scene(view, 500, 500);
+//            Stage nextStage = new Stage();
+//            nextStage.setScene(nextScene);
+//            nextStage.setTitle(pEnclosure.getName());
+//            nextStage.initModality(Modality.WINDOW_MODAL);
+//            nextStage.initOwner(((Node) pEvent.getSource()).getScene().getWindow());
+//            nextStage.showAndWait();
     }
 
     @FXML

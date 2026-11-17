@@ -1,7 +1,4 @@
-package com.example.zoomanagementapplication;
-
-import com.example.zoomanagementapplication.Model.ZooComponent;
-import com.example.zoomanagementapplication.Model.ZooSection;
+package com.example.zoomanagementapplication.Model;
 
 public class ZooService {
 

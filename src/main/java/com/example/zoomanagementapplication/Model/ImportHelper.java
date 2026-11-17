@@ -1,6 +1,4 @@
-package com.example.zoomanagementapplication;
-import com.example.zoomanagementapplication.Model.Enclosure;
-import com.example.zoomanagementapplication.Model.ZooSection;
+package com.example.zoomanagementapplication.Model;
 
 /**
  * The {@code ImportHelper} class is a utility class responsible for
@@ -115,11 +113,11 @@ public final class ImportHelper {
         tigers.addComponent(tigerHabitat);
         tigers.addComponent(tigerCubs);
 
-//        Enclosure cougars = new Enclosure("Cougars");
-//        cougars.addAnimal(new Cougar("Sierra", 3));
-//        cougars.addAnimal(new Cougar("Rocky", 3));
-//        cougars.addAnimal(new Cougar("Luna", 2));
-//        cougars.addAnimal(new Cougar("Lenny", 1));
+        Enclosure cougars = new Enclosure("Cougars");
+        cougars.addAnimal(new Cougar("Sierra", 3));
+        cougars.addAnimal(new Cougar("Rocky", 3));
+        cougars.addAnimal(new Cougar("Luna", 2));
+        cougars.addAnimal(new Cougar("Lenny", 1));
 
         ZooSection bigCats = new ZooSection("Big Cats");
         bigCats.addComponent(lions);
@@ -146,10 +144,10 @@ public final class ImportHelper {
 //        penguins.addAnimal(new Penguin("Rico", 6));
 //        penguins.addAnimal(new Penguin("Kowalski", 8));
 
-        ZooSection birds = new ZooSection("Birds");
-        birds.addComponent(eagles);
-        birds.addComponent(parrots);
-        birds.addComponent(penguins);
+//        ZooSection birds = new ZooSection("Birds");
+//        birds.addComponent(eagles);
+//        birds.addComponent(parrots);
+//        birds.addComponent(penguins);
 
         // ==========================================================
         // ROOT ZOO SECTION
@@ -157,7 +155,7 @@ public final class ImportHelper {
 
         ZooSection zoo = new ZooSection("Zoo");
         zoo.addComponent(bigCats);
-        zoo.addComponent(birds);
+//        zoo.addComponent(birds);
 
         // ==========================================================
         // SERVICE

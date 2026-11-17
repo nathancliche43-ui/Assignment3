@@ -1,6 +1,4 @@
-package com.example.zoomanagementapplication;
-
-import com.example.zoomanagementapplication.Model.Animal;
+package com.example.zoomanagementapplication.Model;
 
 public class Lion extends Animal {
     /**
