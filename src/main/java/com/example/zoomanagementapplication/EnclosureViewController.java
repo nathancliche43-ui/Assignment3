@@ -1,6 +1,5 @@
 package com.example.zoomanagementapplication;
 
-import com.example.zoomanagementapplication.HelloApplication;
 import com.example.zoomanagementapplication.Model.Animal;
 import com.example.zoomanagementapplication.Model.Enclosure;
 import javafx.event.ActionEvent;
@@ -15,10 +14,7 @@ import javafx.scene.control.ListView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import javafx.fxml.FXML;
-
 import java.io.IOException;
-import java.util.List;
 
 public class EnclosureViewController {
     @FXML
@@ -31,11 +27,12 @@ public class EnclosureViewController {
     private ListView<Animal> aAnimalListView;
 
     private Enclosure aEnclosure;
-    
+
     private void refresh() {
         this.aAnimalListView.getItems().setAll(this.aEnclosure.getAnimal());
         this.aCountLabel.setText("Animals: " + this.aEnclosure.countAnimals());
     }
+
 
     /**
      *
@@ -43,11 +40,12 @@ public class EnclosureViewController {
      */
     @FXML
     protected void onAddButtonClick(ActionEvent pEvent) {
-        Animal created = this.openAnimalView(null, pEvent);
-        if (created != null) {
-            this.aEnclosure.addAnimal(created);
-            this.refresh();
-        }
+//        Animal created = this.openAnimalView(null, pEvent);
+//        if (created != null) {
+//            this.aEnclosure.addAnimal(created);
+//            this.refresh();
+//        }
+        this.openAnimalView(null, pEvent);
     }
 
     /**
@@ -102,24 +100,34 @@ public class EnclosureViewController {
      * @param pEvent  the event that triggered this
      * @return the animal that was saved
      */
-    private Animal openAnimalView(Animal pAnimal, ActionEvent pEvent) {
+    private void openAnimalView(Animal pAnimal, ActionEvent pEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("animal-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(AnimalViewController.class.getResource("animal-view.fxml"));
             Parent view = loader.load();
             AnimalViewController controller = loader.getController();
-            controller.setAnimal(pAnimal);
 
             Stage stage = new Stage();
-            stage.setScene(new Scene(view));
-            stage.setTitle(pAnimal == null ? "New animal" : "Edit " + pAnimal.getName());
+            stage.setScene(new Scene(view)); // must come BEFORE setAnimal
             stage.initModality(Modality.WINDOW_MODAL);
             stage.initOwner(((Node) pEvent.getSource()).getScene().getWindow());
-            stage.showAndWait();
 
-            return controller.getAnimal();
+            if (pAnimal == null) {
+                controller.setEnclosure(this.aEnclosure); // Add: new animal
+            } else {
+                controller.setAnimal(pAnimal);            // Edit: existing animal
+            }
+
+            stage.showAndWait();
+            this.refresh();
         } catch (IOException e) {
-            new Alert(Alert.AlertType.ERROR, "Could not open the animal view: " + e.getMessage());
-            return null;
+            new Alert(Alert.AlertType.ERROR, "Could not open the animal view: " + e.getMessage()).showAndWait();
         }
+    }
+
+
+    public void setEnclosure(Enclosure selectedEnclosure) {
+        this.aEnclosure = selectedEnclosure;
+        this.aTitleLabel.setText(selectedEnclosure.getName());
+        this.refresh();
     }
 }

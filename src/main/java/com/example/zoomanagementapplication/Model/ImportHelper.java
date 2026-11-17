@@ -128,26 +128,26 @@ public final class ImportHelper {
         // BIRDS
         // ==========================================================
 
-//        Enclosure eagles = new Enclosure("Eagles");
-//        eagles.addAnimal(new Eagle("Freedom", 6));
-//        eagles.addAnimal(new Eagle("Majesty", 4));
-//        eagles.addAnimal(new Eagle("Talon", 7));
-//
-//        Enclosure parrots = new Enclosure("Parrots");
-//        parrots.addAnimal(new Parrot("Rio", 2));
-//        parrots.addAnimal(new Parrot("Mango", 5));
-//        parrots.addAnimal(new Parrot("Kiwi", 3));
-//
-//        Enclosure penguins = new Enclosure("Penguins");
-//        penguins.addAnimal(new Penguin("Pingu", 4));
-//        penguins.addAnimal(new Penguin("Skipper", 7));
-//        penguins.addAnimal(new Penguin("Rico", 6));
-//        penguins.addAnimal(new Penguin("Kowalski", 8));
+        Enclosure eagles = new Enclosure("Eagles");
+        eagles.addAnimal(new Eagle("Freedom", 6));
+        eagles.addAnimal(new Eagle("Majesty", 4));
+        eagles.addAnimal(new Eagle("Talon", 7));
 
-//        ZooSection birds = new ZooSection("Birds");
-//        birds.addComponent(eagles);
-//        birds.addComponent(parrots);
-//        birds.addComponent(penguins);
+        Enclosure parrots = new Enclosure("Parrots");
+        parrots.addAnimal(new Parrot("Rio", 2));
+        parrots.addAnimal(new Parrot("Mango", 5));
+        parrots.addAnimal(new Parrot("Kiwi", 3));
+
+        Enclosure penguins = new Enclosure("Penguins");
+        penguins.addAnimal(new Penguin("Pingu", 4));
+        penguins.addAnimal(new Penguin("Skipper", 7));
+        penguins.addAnimal(new Penguin("Rico", 6));
+        penguins.addAnimal(new Penguin("Kowalski", 8));
+
+        ZooSection birds = new ZooSection("Birds");
+        birds.addComponent(eagles);
+        birds.addComponent(parrots);
+        birds.addComponent(penguins);
 
         // ==========================================================
         // ROOT ZOO SECTION
@@ -155,7 +155,7 @@ public final class ImportHelper {
 
         ZooSection zoo = new ZooSection("Zoo");
         zoo.addComponent(bigCats);
-//        zoo.addComponent(birds);
+        zoo.addComponent(birds);
 
         // ==========================================================
         // SERVICE

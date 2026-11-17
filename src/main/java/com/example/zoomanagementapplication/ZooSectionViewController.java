@@ -77,17 +77,21 @@ public class ZooSectionViewController {
 
     @FXML
     private void openEnclosureWindow(Enclosure selectedEnclosure, ActionEvent pEvent) throws IOException {
-//            FXMLLoader = new FXMLLoader(ZooApplication.class.getResource("enclosure-view.fxml"));
-//            Parent view = fxmlLoader.load();
-//            EnclosureViewController newEnclosureViewController = fxmlLoader.getController();
-//            newEnclosureViewController.setEnclosure(getSelectedEnclosure());
-//            Scene nextScene = new Scene(view, 500, 500);
-//            Stage nextStage = new Stage();
-//            nextStage.setScene(nextScene);
-//            nextStage.setTitle(pEnclosure.getName());
-//            nextStage.initModality(Modality.WINDOW_MODAL);
-//            nextStage.initOwner(((Node) pEvent.getSource()).getScene().getWindow());
-//            nextStage.showAndWait();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(ZooApplication.class.getResource("enclosure-view.fxml"));
+        Parent view = fxmlLoader.load();
+        EnclosureViewController newEnclosureViewController = fxmlLoader.getController();
+        newEnclosureViewController.setEnclosure((Enclosure) zooListView.getSelectionModel().getSelectedItem());
+
+        Scene nextScene = new Scene(view, 500, 500);
+        Stage nextStage = new Stage();
+        nextStage.setScene(nextScene);
+        nextStage.setTitle(selectedEnclosure.getName());
+        nextStage.initModality(Modality.WINDOW_MODAL);
+        nextStage.initOwner(((Node) pEvent.getSource()).getScene().getWindow());
+        nextStage.showAndWait();
+
+        zooListView.refresh(); // redraws the "(3 animals)" counts after changes
     }
 
     @FXML
